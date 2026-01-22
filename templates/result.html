@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ผลการวิเคราะห์</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body><body>
+
+<div class="container">
+    <h1>ผลการวิเคราะห์ด้วย AI</h1>
+
+    <img src="{{ url_for('static', filename='uploads/' + filename) }}" width="300">
+
+    <div class="result-box">
+        <p>โรคที่คาดว่าเป็น:</p>
+        <p class="highlight">{{ disease }}</p>
+
+        <p>ความมั่นใจ:</p>
+        <p class="highlight">{{ confidence }}%</p>
+    </div>
+
+    <a href="/" class="back-link">← วิเคราะห์รูปใหม่</a>
+</div>
+
+</body>
+<div class="result-box">
+    <p>โรคที่คาดว่าเป็น:</p>
+    <p class="highlight">{{ disease }}</p>
+
+    <p>ความมั่นใจ:</p>
+    <p class="highlight">{{ confidence }}%</p>
+
+    <hr>
+
+    <p><b>คำแนะนำเบื้องต้น:</b></p>
+    <p>{{ advice }}</p>
+</div>
+
+
+<h2>ผลการวิเคราะห์โรคผิวหนัง</h2>
+
+<img src="{{ url_for('static', filename='uploads/' + filename) }}"
+     width="300">
+
+<p><b>โรคที่คาดว่าเป็น:</b> {{ disease }}</p>
+<p><b>ความมั่นใจ:</b> {{ confidence }}%</p>
+
+<a href="/">🔙 กลับหน้าแรก</a>
+
+</body>
+</html>
