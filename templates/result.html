@@ -2,120 +2,37 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>ผลการวิเคราะห์ด้วย AI</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #f4f6f8;
-            margin: 0;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 600px;
-            margin: auto;
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            text-align: center;
-            color: #2c3e50;
-        }
-
-        .image-box {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .image-box img {
-            max-width: 100%;
-            border-radius: 10px;
-        }
-
-        .result-box {
-            background: #eaf2f8;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-        }
-
-        .result-box h3 {
-            margin-top: 0;
-            color: #2980b9;
-        }
-
-        .confidence {
-            margin-top: 10px;
-            font-weight: bold;
-        }
-
-        .confidence span {
-            color: #27ae60;
-        }
-
-        .advice-box {
-            background: #fff3cd;
-            border-left: 6px solid #f1c40f;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 8px;
-        }
-
-        .warning {
-            margin-top: 20px;
-            color: #c0392b;
-            font-size: 14px;
-        }
-
-        .back {
-            text-align: center;
-            margin-top: 25px;
-        }
-
-        .back a {
-            text-decoration: none;
-            background: #3498db;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 8px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ผลการวิเคราะห์</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
 
 <div class="container">
-    <h1>🧠 ผลการวิเคราะห์ด้วย AI</h1>
+    <h1>ผลการวิเคราะห์</h1>
 
-    <div class="image-box">
-        <img src="{{ url_for('static', filename='uploads/' + filename) }}">
-    </div>
+    <img src="{{ url_for('static', filename='uploads/' + filename) }}"
+         style="width:100%; max-width:100%; height:auto; border-radius:12px; margin-bottom:20px;">
 
     <div class="result-box">
-        <h3>โรคที่ AI คาดว่าเป็น</h3>
-        <p><b>{{ disease }}</b></p>
+        <p><strong>ประเภทผื่น:</strong> {{ disease }}</p>
+        <p><strong>ความมั่นใจ:</strong> {{ confidence }}%</p>
 
-        <div class="confidence">
-            ความมั่นใจของ AI: <span>{{ confidence }}%</span>
+        <div class="progress-container">
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="--progress: {{ confidence }}%;"></div>
+            </div>
         </div>
+
+        <p><strong>คำแนะนำ:</strong> {{ advice }}</p>
     </div>
 
-    <div class="advice-box">
-        <h3>💡 คำแนะนำจากปัญญาประดิษฐ์ (AI)</h3>
-        <p>{{ advice }}</p>
-    </div>
-
-    <div class="warning">
-        ⚠️ ผลลัพธ์นี้เป็นเพียงการคัดกรองเบื้องต้นจากระบบ AI  
-        ไม่สามารถใช้แทนการวินิจฉัยจากแพทย์ได้
-    </div>
-
-    <div class="back">
-        <a href="/">⬅ กลับไปอัปโหลดรูปใหม่</a>
-    </div>
+    <a href="/">
+        <button>🔄 วิเคราะห์รูปอื่น</button>
+    </a>
 </div>
 
 </body>
 </html>
+
