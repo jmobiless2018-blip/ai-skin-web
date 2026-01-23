@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="th">
-<head><meta property="og:title" content="AI คัดกรองผื่นผิวหนัง">
-<meta property="og:description" content="เว็บแอปพลิเคชันช่วยประเมินผื่นผิวหนังเบื้องต้นด้วย AI">
-<meta property="og:image" content="https://ai-skin-website.onrender.com/static/preview.png">
-<meta property="og:url" content="https://ai-skin-website.onrender.com">
-<meta property="og:type" content="website">
-
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>AI Skin Screening</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
+
+    <!-- Open Graph (สำหรับ IG / LINE / Facebook) -->
+    <meta property="og:title" content="AI คัดกรองผื่นผิวหนัง">
+    <meta property="og:description" content="เว็บแอปพลิเคชันช่วยประเมินผื่นผิวหนังเบื้องต้นด้วย AI">
+    <meta property="og:image" content="https://ai-skin-website.onrender.com/static/preview.png">
+    <meta property="og:url" content="https://ai-skin-website.onrender.com">
+    <meta property="og:type" content="website">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
