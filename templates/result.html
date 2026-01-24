@@ -2,8 +2,9 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ผลการวิเคราะห์</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
@@ -12,27 +13,42 @@
 <div class="container">
     <h1>ผลการวิเคราะห์</h1>
 
-    <img src="{{ url_for('static', filename='uploads/' + filename) }}"
-         style="width:100%; max-width:100%; height:auto; border-radius:12px; margin-bottom:20px;">
+    <!-- ✅ แสดงรูป -->
+    {% if filename %}
+    <div style="text-align:center; margin-bottom:20px;">
+        <img src="{{ url_for('static', filename=filename) }}"
+             style="width:100%; max-height:300px;
+                    object-fit:cover;
+                    border-radius:18px;
+                    box-shadow:0 6px 15px rgba(0,0,0,0.2);">
+    </div>
+    {% endif %}
 
+    <!-- ✅ ผลหลัก -->
     <div class="result-box">
-        <p><strong>ประเภทผื่น:</strong> {{ disease }}</p>
-        <p><strong>ความมั่นใจ:</strong> {{ confidence }}%</p>
-
-        <div class="progress-container">
-            <div class="progress-bar-bg">
-                <div class="progress-bar-fill" style="--progress: {{ confidence }}%;"></div>
-            </div>
-        </div>
-
-        <p><strong>คำแนะนำ:</strong> {{ advice }}</p>
+        <strong>ประเภทผื่น:</strong> {{ main_rash.name }} <br><br>
+        <strong>ความมั่นใจ:</strong> {{ main_rash.confidence }}% <br><br>
+        <strong>คำแนะนำ:</strong> {{ main_rash.advice }}
     </div>
 
-    <a href="/">
-        <button>🔄 วิเคราะห์รูปอื่น</button>
+    <br>
+
+    <!-- ✅ ผลรอง -->
+    <div class="result-box">
+        <strong>ความเป็นไปได้อื่น:</strong><br><br>
+
+        {% for r in results %}
+            ✅ {{ r.name }} ({{ r.confidence }}%) <br>
+        {% endfor %}
+    </div>
+
+    <br>
+
+    <a href="/" style="text-decoration:none;">
+        <button>วิเคราะห์รูปอื่น</button>
     </a>
+
 </div>
 
 </body>
 </html>
-
