@@ -2,28 +2,31 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <title>AI คัดกรองผื่นผิวหนัง</title>
+    <title>AI คัดกรองผื่นผิวหนังด้วย AI</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- ✅ แชร์แล้วขึ้นการ์ด -->
-    <meta property="og:title" content="AI คัดกรองผื่นผิวหนัง">
-    <meta property="og:description" content="ระบบประเมินผื่นเบื้องต้นด้วย AI (โครงงานนักเรียน)">
+    <!-- ✅ โหลด CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <!-- ✅ OG Preview Card สำหรับแชร์ -->
+    <meta property="og:title" content="AI คัดกรองผื่นผิวหนังด้วย AI">
+    <meta property="og:description" content="เว็บช่วยวิเคราะห์ผื่นเบื้องต้นจากภาพถ่ายด้วยระบบ AI">
     <meta property="og:image" content="https://ai-skin-website.onrender.com/static/og-image.png">
-    <meta property="og:url" content="https://ai-skin-website.onrender.com/">
+    <meta property="og:url" content="https://ai-skin-website.onrender.com">
     <meta property="og:type" content="website">
 
-    <!-- ✅ CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <!-- ✅ Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://ai-skin-website.onrender.com/static/og-image.png">
 </head>
 
 <body>
 
 <div class="container">
     <h1>AI คัดกรองผื่นผิวหนังด้วย AI</h1>
-    <p class="subtitle">อัปโหลดรูปเพื่อประเมินเบื้องต้น</p>
+    <p class="subtitle">อัปโหลดรูปเพื่อประเมินเบื้องต้นด้วย AI</p>
 
-    <!-- ✅ ต้องส่งไป /result -->
-    <form action="/result" method="post" enctype="multipart/form-data">
+    <form action="/result" method="POST" enctype="multipart/form-data">
         <input type="file" name="image" required>
         <button type="submit">อัปโหลดรูป</button>
     </form>
