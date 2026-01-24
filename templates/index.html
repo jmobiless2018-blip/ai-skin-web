@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <!DOCTYPE html>
-<html lang="th">
-<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>AI คัดกรองผื่นผิวหนัง</title>
 
-    <!-- Open Graph (Facebook / IG / LINE) -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ai-skin-website.onrender.com/">
-    <meta property="og:title" content="AI คัดกรองผื่นผิวหนัง">
-    <meta property="og:description" content="เว็บแอปช่วยประเมินผื่นผิวหนังเบื้องต้นด้วย AI">
-    <meta property="og:image" content="https://ai-skin-website.onrender.com/static/og-image.png">
-    <meta property="og:image:secure_url" content="https://ai-skin-website.onrender.com/static/og-image.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-
-    <!-- Favicon -->
-    <link rel="icon" href="{{ url_for('static', filename='favicon.png') }}">
-
-    <!-- CSS -->
+    <!-- ✅ โหลด CSS ถูกต้อง -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
+<body>
+
+<div class="container">
+    <h1>AI คัดกรองผื่นผิวหนังด้วย AI</h1>
+
+    <form action="/result" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" required>
+        <br><br>
+        <button type="submit">อัปโหลดรูป</button>
+    </form>
+</div>
+
+</body>
+</html>
+
+
