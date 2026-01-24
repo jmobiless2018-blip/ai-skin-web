@@ -68,3 +68,25 @@ button:hover {
         font-size: 22px;
     }
 }
+@media (max-width: 600px) {
+
+    .container {
+        width: 90%;
+        margin: 30px auto;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    button {
+        font-size: 15px;
+        padding: 12px;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
