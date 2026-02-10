@@ -116,15 +116,16 @@
         {% if main_rash %}
         <div class="result-box">
             <p><strong>ประเภทผื่น:</strong> {{ main_rash.name }}</p>
-            <p><strong>ความมั่นใจ:</strong> {{ main_rash.confidence }}%</p>
-            <p><strong>คำแนะนำ:</strong> {{ main_rash.advice }}</p>
+            <p><strong><strong>ความเป็นไปได้ของชนิดผื่น:</strong>
+:</strong> {{ main_rash.confidence }}%</p>
+            <p><strong>คำแนะนำเบื้องต้น ไม่ใช่การวินิจฉัยของแพทย์:</strong> {{ main_rash.advice }}</p>
         </div>
         {% endif %}
 
         <!-- ✅ ผลอื่น -->
         {% if results %}
         <div class="result-box">
-            <p><strong>ความเป็นไปได้อื่น:</strong></p>
+            <p><strong>ความเป็นไปได้ของผื่นชนิดอื่น:</strong></p>
             <ul>
                 {% for r in results %}
                     <li>{{ r.name }} ({{ r.confidence }}%)</li>
